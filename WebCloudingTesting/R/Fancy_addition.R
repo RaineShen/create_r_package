@@ -9,7 +9,10 @@
 #' @return A number
 #' @export
 
-source("dummie.R")
+dummie <- function(a){
+  a+0
+}
+
 fancy_addition <- function(a,b){
   dummie(a) + dummie(b)
 }
