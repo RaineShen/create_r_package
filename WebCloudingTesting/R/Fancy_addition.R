@@ -9,7 +9,7 @@
 #' @return A number
 #' @export
 
-
+source("dummie.R")
 fancy_addition <- function(a,b){
-  a+b
+  dummie(a) + dummie(b)
 }
