@@ -1,0 +1,178 @@
+---
+title: "Project_Notes_RShen"
+author: "Rain Shen"
+date: "2/8/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Feb 05, 2021
+
+Team meeting on overall project plan. 
+
+### Feb 06, 2021
+
+Did research on usethis and devtools for creating R package.
+
+https://tinyheero.github.io/jekyll/update/2015/07/26/making-your-first-R-package.html
+
+### Feb 07, 2021
+
+API checks using R packages httr, jsonlite.
+
+### Feb 08, 2021
+
+Did research on creating a R package from scratch. Two main R packages that are required: devtools for creating R package, and roxygen2, which is for documenting the functions.
+
+naveen-chalasani/R.vengers@c0aaeeb792e6075d8405c725e0858ea8fefecbdf
+
+### Feb 09, 2021
+
+As a group, get to know the OMDb API. The parameters can be ID or title as at least one of these two arguments is required. The API can also take parameter of title by searching, i.e. taking key word(s) of users' choice. 
+
+Obtained a free API key from http://www.omdbapi.com/.
+
+naveen-chalasani/R.vengers@a4c04ad015f4f3ec709d09d156fcc6759c8de75e
+
+
+### Feb 10, 2021
+
+Created functions by using imdb ids to obtain detailed movie information. 
+Using ```GET()``` function from httr and ```fromJSON()``` from jsonlite.
+
+### Feb 11, 2021
+
+Look into unittests for R functions. Set up testing structures as checking both possible input errors from the users, and ensuring the correct output of the functions.
+
+All functions should provide information in a dataframe format for the users.
+
+### Feb 12, 2021
+
+As a group, set up structures of functions that can output different results from the searching.
+
+```get_actors()```
+```get_runtime()```
+```get_genre()```
+```get_writers_and_director()```
+```get_awards()```
+```get_poster()```
+```get_rating()```
+
+### Feb 13, 2021
+
+Discussion on unittest and installation. 
+
+Wrote unittests for functions to handle input errors - providing error messages, and to check output correctness - correct data type, column name etc. e.g.
+
+```{r}
+test_that("errors for incorrect input", {
+  
+  expect_error(get_actors('winter', 'summer'), "Type is invalid. Please use one of these : movie, series, episode, game")
+  expect_error(get_actors(), "No input provided. Please search again.")
+  
+})
+
+test_that("correct actors output", {
+  
+  output <- get_actors('black', 'movie')
+  expect_type(output, 'list')
+  expect_true(is.data.frame(output))
+  expect_equal(ncol(output), 4)
+  expect_type(output$Actors, 'character')
+  expect_equal(colnames(output)[4] , 'Actors')
+  expect_equal(get_actors('in black'), get_actors('in+black'))
+  expect_match(sample(output[[1]], 1), '*black*', ignore.case = TRUE)
+  expect_equal(nrow(output), length(unique(output$Title)))
+  
+})
+```
+
+Averagely, 8 to 9 tests per function for both input and output testing.
+
+Ran ```test_check("R.vengers")``` for all unittests - all passed.
+
+### Feb 14, 2021
+
+Created R package "R.vengers" by using devtools. Added functions that created to the package as .R files.
+
+Note: As functions require external packages, :: has been used instead of ```library()``` or ```require()```, since using a ```library()``` in an R package can globally effect the availability of functions.
+
+External dependencies have been included in the DESCRIPTION file under 'Imports'.
+
+### Feb 15, 2021
+
+As a group, adding documentation for functions. Parameters need to be included:
+ 
+  @param Input of the function
+
+  @return Output of the function
+
+  @export Required for availability for the package users
+          CHECK the NAMESPACE file
+
+  @examples Examples provided for using the functions
+  
+Run ```devtools::document()``` to get the .Rd file for each function in the R package.
+
+Added unittests for functions.
+
+naveen-chalasani/R.vengers@e65058f2d190e02b2bc155cd3933439bb41b8813
+  
+
+### Feb 16, 2021
+
+As a group, using ```usethis``` to initiate the continuous integration tests by Github Action. 
+
+```usethis::use_github_action_check_standard()``` to configure an individual, specific GitHub Actions workflow. 
+
+Integration tests were tested under 4 operating systems: Windows, macOS, Ubuntu (release), and Ubuntu (devel).
+
+Errors happened in 'Check' section 
+
+- no standard license - added MIT license.
+- no default argument for "search_text" for get functions - added default argument
+- example checking error - revised @example for functions
+
+R-CMD-check ALL passed for all 4 operating systems.
+Added R-CMD-check badage in Github repo.
+
+naveen-chalasani/R.vengers@ba7f72d53dbfa6c0e3ccf7623c3d89ad04317a02
+
+### Feb 17, 2021
+
+Modified functions to add the ```stop()``` to raise error message for incorrect input. For type, anything other than "movie", "series", "episode", "game" are invalid types, as the API itself will not provide error message directly to the R package users. 
+
+Also, input of key word is required as empty input "" will return nothing. 
+
+naveen-chalasani/R.vengers@5d90956909753d475ba22ccad90ee92e36860eb3
+
+### Feb 18, 2021
+
+Revised unittests to check the correct error raise for all functions.
+
+Added test coverage for Github Action - passed.
+
+
+### Feb 19, 2021
+
+Added unittest for the new function avengers_movies()
+
+Added badges for test coverage - passing and CodeCov - 95%.
+
+naveen-chalasani/R.vengers@bf3fdf0eb28cc4cc9fd16305a264a73982e13d40
+
+### Feb 20, 2021
+
+Updated README for including R package description.
+
+naveen-chalasani/R.vengers@96c663d38fdc55ee5a72272bcc6ce2ae66bc87c4
+
+### Feb 21, 2021
+
+Final editing on vignette and README files. Uploaded individual notebooks to the testing Github repo, as well as the contribution work flow.
+
+
+
