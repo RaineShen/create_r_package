@@ -1,0 +1,41 @@
+---
+title: "Contributing"
+author: "Tony"
+date: "05/02/2021"
+output: html_document
+---
+
+We propose to have the following workflow below:
+
+As a group, we will:
+- meet in-person weekly to discuss individual research and updates.
+- check the API and create functions accordingly.
+- work on unit-tests
+- implement continuous integration via GitHub Actions.
+- discuss what to include in the vignette.
+
+Individual Responsibilities include:
+
+Naveen:
+- create functions
+- edit & finalize functions
+- research on continuous integration tests
+- testing and error handling
+- implement continuous integration with GitHub Actions
+- having fun with R
+
+Rain:
+- create functions
+- edit & finalize functions
+- research on how to create an R package
+- research on unit testing in R
+- testing & error handling
+- having fun with R
+
+Tony:
+- create functions
+- edit & finalize functions
+- research on unit testing in R
+- research and create vignette
+- testing & error handling
+- having fun with R
