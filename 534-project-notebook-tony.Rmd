@@ -1,0 +1,92 @@
+---
+title: "tony-notebook"
+author: "Tony"
+date: "21/02/2021"
+output: html_document
+---
+
+# Notebook
+
+February 3
+
+- Sent project proposal to Professor Lucet
+
+February 5
+
+- Team Meeting 1 
+  - 1st team meeting on project plan
+  - Initial Commit to GitHub Repo
+
+February 6
+
+- Researched how to perform unit testing in R
+
+February 7
+
+- Discussed unit testing with group
+
+February 9
+
+- Team Meeting 2
+  - Discussed which functions need to be created
+
+February 10
+
+- Created functions get_genre, get_poster, get_writer, read_plot, search_all
+- Pushed initial draft for functions onto GitHub
+
+February 11
+
+- Worked on surprise_me function
+
+February 12
+
+- Worked on surprise_me function
+
+February 13
+
+- Team Meeting 3
+  - Unit Testing Research & Implementation
+  - Created R Package.
+  - Installation
+
+February 14
+
+- Pushed surprise_me function to GitHub
+
+February 15
+
+- Researched on how to create vignette
+- Looked at examples of vignettes: dplyr, ggplot
+
+February 16
+
+- Team Meeting 4
+  - Github Actions
+  - Continuous Integration Implementations
+  - Error Handling
+  - Troubleshooting
+
+February 17
+
+- Continued reading vignette tutorials
+- Continued looking at vignette examples: dplyr, ggplot
+
+February 18
+
+- Worked on vignette
+
+February 19
+
+- Worked on vignette
+
+February 20
+
+- Completed vignette
+- Added vignette to package
+
+February 21
+
+- Team Meeting: Final wrap up for package
+- Updated contributions
+- Submitted R.vengers package
