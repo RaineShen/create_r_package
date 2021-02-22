@@ -1,0 +1,24 @@
+---
+title: "534 project notes (Naveen Chalasani)"
+output:
+  html_document:
+    df_print: paged
+---
+
+* Feb 5, 2021 Team meeting, discuss project planning, and next steps
+* Feb 6, 2021 Research Continuous Integration Travis-CI vs Github Actions (for R package).
+* Feb 7, 2021 Research OMDB API usage
+* Feb 8, 2021 code check for the API
+* Feb 9 2021 draft code and initial checks of functions.
+* Feb 10, 2021 draft get_ratings, get_runtime, get_actors, get_director, get_writer, get_awards functions.
+* Feb 11, 2021 testing code
+* Feb 13 2021 Unit testing research and implementation discussion.
+* Feb 14, 2021 check, and update functions in the repository
+* Feb 16 2021 Github Actions Continuous Integration implementation and troubleshooting.
+* Feb 17, 2021 Error handling discussion
+* Feb 18, 2021 testing code
+* Feb 19, 2021 Add more movies in recommendations
+* Feb 21 2021 Final updates, documentation updates etc. and submission of project.
+
+> Note: As all three of us live on-campus and meet almost daily, it was easy to collaborate and we did most of the work together. 
+
