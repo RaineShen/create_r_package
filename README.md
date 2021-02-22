@@ -1,3 +1,6 @@
+### Project Files
+> contributing.Rmd
+
 ### data534 Project NoteBooks    
 > 534-project-notebook-tony.Rmd     
 > Project_Notes_RainShen.rmd    
